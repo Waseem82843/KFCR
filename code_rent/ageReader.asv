@@ -1,0 +1,35 @@
+ function [ageVector] = ageReader  
+
+   ageVector = [];
+
+    sdir  = 'E:\Literature\Data\RentTheRunwayDataset\user_age.csv';       
+   
+      % sfile = 'user_age.csv'; 
+
+  
+    
+     xdata  = readmatrix(sdir);       
+
+    tic;
+
+    ndata  = size(xdata,1);   % 1=rows, 
+    fdata  = size(xdata,2);   %  2 =cols
+     
+
+     for i=1:ndata
+        mov= xdata(i,1);
+        age= xdata(i,2);
+        
+        for j=1:64
+
+               if(age==j)                   
+                   ageVector(i, j) = 1;
+               else
+                   ageVector(i, j) = 0;
+               end
+           end
+     end
+ 
+    toc;
+     
+ return
